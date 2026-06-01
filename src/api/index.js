@@ -1,7 +1,10 @@
 import axios from 'axios'
 
+// 从环境变量读取后端地址，如果没有则使用默认的 '/api'
+const baseURL = import.meta.env.VITE_API_BASE_URL || '/api'
+
 const request = axios.create({
-  baseURL: '/api',
+  baseURL: baseURL,
   timeout: 30000
 })
 
