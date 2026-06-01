@@ -1,7 +1,7 @@
 import axios from 'axios'
 
 // 临时写死后端地址，确保前后端连通
-const baseURL = 'https://my-backend-kzng.onrender.com'
+const baseURL = 'https://my-backend-kzng.onrender.com/api'
 
 const request = axios.create({
     baseURL: baseURL,
