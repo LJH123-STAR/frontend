@@ -1,7 +1,7 @@
 <template>
   <el-container class="layout-container">
-    <!-- 桌面端侧边栏 (大屏幕可见) -->
-    <el-aside width="240px" class="sidebar hidden-xs-only">
+    <!-- 桌面端侧边栏（大屏幕可见，小屏幕隐藏） -->
+    <el-aside width="240px" class="sidebar">
       <div class="logo">
         <el-icon :size="28"><Headset /></el-icon>
         <span>AI法理编曲</span>
@@ -32,7 +32,7 @@
       </el-menu>
     </el-aside>
 
-    <!-- 移动端抽屉菜单 (小屏幕可见) -->
+    <!-- 移动端抽屉菜单 -->
     <el-drawer
       v-model="drawerVisible"
       direction="ltr"
@@ -72,17 +72,17 @@
     </el-drawer>
 
     <el-container>
-      <!-- 顶部栏：移动端显示菜单按钮，桌面端隐藏 -->
+      <!-- 顶部栏：移动端显示菜单按钮，桌面端隐藏按钮 -->
       <el-header class="header">
         <div class="header-left">
-          <el-button class="hidden-sm-and-up" type="text" @click="drawerVisible = true" style="margin-right: 16px;">
+          <el-button class="menu-btn" type="text" @click="drawerVisible = true">
             <el-icon :size="24"><Menu /></el-icon>
           </el-button>
           <span class="header-title">{{ $route.meta.title }}</span>
         </div>
         <div class="header-user">
           <el-avatar :size="32" src="https://cube.elemecdn.com/0/88/03b0d39583f48206768a7534e55bcpng.png" />
-          <span class="hidden-xs-only" style="margin-left: 8px;">管理员</span>
+          <span class="user-name" style="margin-left: 8px;">管理员</span>
         </div>
       </el-header>
 
@@ -108,13 +108,15 @@ const drawerVisible = ref(false)
   height: 100%;
 }
 
-/* 桌面端侧边栏 */
+/* 桌面端侧边栏，默认显示，手机端通过媒体查询隐藏 */
 .sidebar {
   background-color: #001529;
   color: white;
   height: 100%;
   overflow-y: auto;
+  display: block; /* 默认显示 */
 }
+
 .logo {
   height: 64px;
   display: flex;
@@ -155,17 +157,33 @@ const drawerVisible = ref(false)
   align-items: center;
 }
 
+/* 菜单按钮：默认隐藏（桌面端），手机端显示 */
+.menu-btn {
+  display: none;
+  margin-right: 8px;
+}
+
 /* 主内容区 */
 .main-content {
   background: #f0f2f5;
   padding: 16px;
   overflow-y: auto;
-  /* 移动端底部留白，避免被底部栏遮挡 */
 }
 
-/* 响应式隐藏：利用 Element Plus 的断点类 */
-/* 小屏幕隐藏侧边栏，显示抽屉按钮 */
+/* 手机端适配 (宽度小于768px) */
 @media (max-width: 767px) {
+  /* 隐藏桌面侧边栏 */
+  .sidebar {
+    display: none !important;
+  }
+  /* 显示菜单按钮 */
+  .menu-btn {
+    display: inline-flex;
+  }
+  /* 隐藏用户名文字，只显示头像 */
+  .user-name {
+    display: none;
+  }
   .header {
     padding: 0 12px;
   }
