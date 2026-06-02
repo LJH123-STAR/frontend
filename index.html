@@ -2,89 +2,25 @@
 <html lang="zh-CN">
   <head>
     <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <meta name="format-detection" content="telephone=no" />
     <link rel="icon" type="image/svg+xml" href="/vite.svg" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=yes" />
+    <title>AI双语法理编曲系统</title>
     <style>
-      /* 基础重置 */
-      * {
-        box-sizing: border-box;
-        -webkit-tap-highlight-color: transparent;
-      }
-      body {
+      html, body, #app {
+        height: 100%;
         margin: 0;
         padding: 0;
-        font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+        font-size: 14px;
       }
-      img, video, iframe, svg {
-        max-width: 100%;
-        height: auto;
-        display: block;
+      body {
+        -webkit-overflow-scrolling: touch;
       }
-      .container, .page, .view, [class*="wrapper"], [class*="layout"] {
-        width: 100%;
-        overflow-x: hidden;
-      }
-      table, pre, code {
-        max-width: 100%;
-        overflow-x: auto;
-        display: block;
-      }
-
-      /* 手机端专用样式 */
-      @media (max-width: 768px) {
-        body {
-          font-size: 14px;
-        }
-        h1, .h1, .title, .app-title {
-          font-size: 1.6rem;
-          margin: 0.5rem 0;
-        }
-        .card, .dashboard-card, .stat-card, .project-item {
-          padding: 10px !important;
-          margin: 8px 0 !important;
-        }
-        .header, .navbar, .top-bar {
-          padding: 8px 12px !important;
-        }
-        .stat-number, .stat-value {
-          font-size: 1.4rem !important;
-        }
-        .stat-label {
-          font-size: 0.8rem !important;
-        }
-        td, th, li {
-          padding: 6px 8px !important;
-        }
-
-        /* Element UI 布局优化 —— 侧边栏固定较窄宽度，主区自适应 */
-        .layout-container,
-        .el-container {
-          width: 100% !important;
-          max-width: 100% !important;
-          padding: 0 !important;
-          margin: 0 !important;
-        }
-        .el-aside {
-          width: 180px !important;
-          min-width: 180px !important;
-          max-width: 180px !important;
-          padding: 0 8px !important;
-        }
-        .el-header {
-          height: auto !important;
-          padding: 8px 12px !important;
-          line-height: normal !important;
-        }
-        .el-main {
-          padding: 12px !important;
-        }
-        .el-menu-item, .el-submenu__title {
-          font-size: 13px !important;
-          padding: 0 8px !important;
-        }
+      *, *::before, *::after {
+        box-sizing: border-box;
       }
     </style>
-    <title>AI双语法理编曲系统</title>
   </head>
   <body>
     <div id="app"></div>
