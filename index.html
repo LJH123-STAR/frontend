@@ -31,33 +31,63 @@
         display: block;
       }
 
-      /* 手机端专用样式：让整体更紧凑 */
+      /* 手机端专用样式：让整体更紧凑，布局更窄 */
       @media (max-width: 768px) {
         body {
           font-size: 14px; /* 减小基础字体 */
         }
         h1, .h1, .title, .app-title {
-          font-size: 1.6rem;  /* 标题缩小 */
+          font-size: 1.6rem;
           margin: 0.5rem 0;
         }
+        /* 卡片、项目项内边距减小 */
         .card, .dashboard-card, .stat-card, .project-item {
           padding: 10px !important;
           margin: 8px 0 !important;
         }
-        /* 如果某个区域有固定高度或大内边距，可以强制减小 */
         .header, .navbar, .top-bar {
           padding: 8px 12px !important;
         }
-        /* 让数据看板的数字和文字更紧凑 */
         .stat-number, .stat-value {
           font-size: 1.4rem !important;
         }
         .stat-label {
           font-size: 0.8rem !important;
         }
-        /* 表格或列表项内边距减小 */
         td, th, li {
           padding: 6px 8px !important;
+        }
+
+        /* ----- 针对 Element UI 布局，使手机端更窄 ----- */
+        /* 主容器完全自适应宽度 */
+        .layout-container,
+        .el-container {
+          width: 100% !important;
+          max-width: 100% !important;
+          padding: 0 !important;
+          margin: 0 !important;
+        }
+        /* 侧边栏：在手机上占满宽度，内边距减小 */
+        .el-aside {
+          width: 100% !important;
+          max-width: 100% !important;
+          min-width: auto !important;
+          padding: 0 8px !important;
+        }
+        /* 顶部栏：高度自动，内边距减小 */
+        .el-header {
+          height: auto !important;
+          padding: 8px 12px !important;
+          line-height: normal !important;
+        }
+        /* 主内容区内边距减小 */
+        .el-main {
+          padding: 12px !important;
+        }
+        /* 菜单项字体和内边距减小 */
+        .el-menu-item, .el-submenu__title {
+          font-size: 14px !important;
+          padding: 0 12px !important;
         }
       }
     </style>
