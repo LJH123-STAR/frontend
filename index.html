@@ -5,7 +5,7 @@
     <link rel="icon" type="image/svg+xml" href="/vite.svg" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=yes" />
     <style>
-      /* 基础重置，使页面在手机上自动缩放 */
+      /* 基础重置 */
       * {
         box-sizing: border-box;
         -webkit-tap-highlight-color: transparent;
@@ -20,7 +20,6 @@
         height: auto;
         display: block;
       }
-      /* 防止容器溢出 */
       .container, .page, .view, [class*="wrapper"], [class*="layout"] {
         width: 100%;
         overflow-x: hidden;
@@ -31,16 +30,15 @@
         display: block;
       }
 
-      /* 手机端专用样式：让整体更紧凑，布局更窄 */
+      /* 手机端专用样式 */
       @media (max-width: 768px) {
         body {
-          font-size: 14px; /* 减小基础字体 */
+          font-size: 14px;
         }
         h1, .h1, .title, .app-title {
           font-size: 1.6rem;
           margin: 0.5rem 0;
         }
-        /* 卡片、项目项内边距减小 */
         .card, .dashboard-card, .stat-card, .project-item {
           padding: 10px !important;
           margin: 8px 0 !important;
@@ -58,8 +56,7 @@
           padding: 6px 8px !important;
         }
 
-        /* ----- 针对 Element UI 布局，使手机端更窄 ----- */
-        /* 主容器完全自适应宽度 */
+        /* Element UI 布局优化 —— 侧边栏固定较窄宽度，主区自适应 */
         .layout-container,
         .el-container {
           width: 100% !important;
@@ -67,27 +64,23 @@
           padding: 0 !important;
           margin: 0 !important;
         }
-        /* 侧边栏：在手机上占满宽度，内边距减小 */
         .el-aside {
-          width: 100% !important;
-          max-width: 100% !important;
-          min-width: auto !important;
+          width: 180px !important;
+          min-width: 180px !important;
+          max-width: 180px !important;
           padding: 0 8px !important;
         }
-        /* 顶部栏：高度自动，内边距减小 */
         .el-header {
           height: auto !important;
           padding: 8px 12px !important;
           line-height: normal !important;
         }
-        /* 主内容区内边距减小 */
         .el-main {
           padding: 12px !important;
         }
-        /* 菜单项字体和内边距减小 */
         .el-menu-item, .el-submenu__title {
-          font-size: 14px !important;
-          padding: 0 12px !important;
+          font-size: 13px !important;
+          padding: 0 8px !important;
         }
       }
     </style>
